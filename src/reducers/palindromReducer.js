@@ -1,11 +1,11 @@
 import {
-  TEXT,VALIDATE_PALINDROM
+  TEXT,VALIDATE_PALINDROM,LOADING
 } from '../actions/types';
 
 const initialState = {
   text :'',
   palindrom: {},
-  loading: false
+  loading: false,
 };
 
 export default function(state = initialState, action) {
@@ -16,7 +16,11 @@ export default function(state = initialState, action) {
         text: action.payload,
         loading: false
       };
-     
+      case LOADING:
+        return {
+          ...state,
+          loading: true
+        };
     case VALIDATE_PALINDROM:
       return {
         ...state,

@@ -1,9 +1,9 @@
-import {TEXT,VALIDATE_PALINDROM
+import {TEXT,VALIDATE_PALINDROM,LOADING
  } from './types';
 import axios from 'axios';
 
 
-export const withReduxText = text => dispatch => {
+export const setText = text => dispatch => {
   dispatch({
     type: TEXT,
     payload: text
@@ -18,6 +18,13 @@ export const validatePalindrom = text => dispatch => {
         payload: response
       })
     )
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+    });
+};
+export const setLoading = () => {
+  return {
+    type: LOADING
+  };
 };
 
